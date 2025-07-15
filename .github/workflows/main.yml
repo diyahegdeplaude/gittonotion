@@ -66,6 +66,10 @@ jobs:
               }
               r = requests.post("https://api.notion.com/v1/pages", headers=headers, json=data)
               print(f"Created: {title} | Status: {r.status_code}")
+              print("Payload sent to Notion:")
+              print(json.dumps(data, indent=2))
+              print("Response:")
+              print(r.text)
               if r.status_code >= 300:
                   print(r.text)
 
